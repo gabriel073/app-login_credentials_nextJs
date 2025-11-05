@@ -1,15 +1,24 @@
 // prisma.config.ts
-import { defineConfig } from '@prisma/config'
+// import { defineConfig } from '@prisma/config'
+
+// export default defineConfig({
+//   schema: './prisma/schema.prisma',
+//   generators: [
+//     {
+//       provider: 'prisma-client-js',
+//     },
+//   ],
+//   datasource: {
+//     provider: 'postgresql',
+//     DATABASE_URL: process.env.DATABASE_URL,
+//   },
+// })
+
+import { defineConfig } from '@prisma/config';
 
 export default defineConfig({
   schema: './prisma/schema.prisma',
-  generators: [
-    {
-      provider: 'prisma-client-js',
-    },
-  ],
-  datasource: {
-    provider: 'postgresql',
-    url: process.env.DATABASE_URL,
+  env: {
+    DATABASE_URL: process.env.DATABASE_URL!, // <- asegurate que esté definida
   },
-})
+});
